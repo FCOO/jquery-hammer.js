@@ -1,14 +1,13 @@
 {
   "name": "jquery-hammer.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/FCOO/jquery-hammer.js",
   "authors": [
     "NielsHolt"
   ],
   "description": "",
   "main": [
-    "dist/jquery-hammer.js.js",
-    "dist/jquery-hammer.js.css"
+    "dist/jquery-hammer.js.js"
   ],
   "repository": {
     "type": "git",
