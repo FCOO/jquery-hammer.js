@@ -1,0 +1,38 @@
+{
+  "name": "jquery-hammer.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/FCOO/jquery-hammer.js",
+  "authors": [
+    "NielsHolt"
+  ],
+  "description": "",
+  "main": [
+    "dist/jquery-hammer.js.js",
+    "dist/jquery-hammer.js.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FCOO/jquery-hammer.js.git"
+  },
+  "dependencies": {
+    "jquery": "latest",
+    "hammerjs": "hammer.js#^2.0.8",
+    "jquery-hammerjs": "hammerjs/jquery.hammer.js#^2.0.0"
+  },
+  "devDependencies": {
+    "bourbon": "latest",
+    "modernizr-mixin": "latest",
+    "mathsass": "latest"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "moduleType": [
+    "es6"
+  ]
+}

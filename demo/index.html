@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="da" style="font-size: 100%">
+    <head>
+	    <title>fcoo.dk - jquery-hammer.js - Demo</title>
+	    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta http-equiv='x-dns-prefetch-control' content='on'>
+
+	    <meta name='copyright' content='FCOO'>
+	    <meta name='owner' content='FCOO'>
+        <style>
+            .box {
+                width:200px;
+                height:200px;
+                border: 1px solid red;
+                background-color: green;
+                margin: auto auto;
+                text-align: center;
+                overflow: hidden;
+            }
+            span:first-of-type { font-weight: 800 }
+        </style>
+       
+</head>
+
+<body>
+    <div id="theBox" class="box"/>
+
+	
+	
+	<script src="bower_components.js"></script>
+	<script src="../src/jquery-hammer.js.js"></script>
+	<script>
+        var theBox = document.getElementById('theBox'), eventNo = 0;
+
+        function onXX( event ){
+            console.log(event.gesture);
+            theBox.innerHTML = '<span>' + eventNo+':'+event.type + '</span><br>' + theBox.innerHTML;
+            eventNo++;
+        }
+
+        $.each( 'pan panstart panmove panend pancancel panleft panright panup pandown pinch pinchstart pinchmove pinchend pinchcancel pinchin pinchout press pressup rotate rotatestart rotatemove rotateend rotatecancel swipe swipeleft swiperight swipeup swipedown tap doubletap'.split(' '), function( index, event ){
+            $(theBox).on(event, onXX);
+        });
+	</script>
+</body>
+</html>
