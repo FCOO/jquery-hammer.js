@@ -1,6 +1,6 @@
 {
   "name": "jquery-hammer.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/FCOO/jquery-hammer.js",
   "authors": [
     "NielsHolt"
@@ -15,8 +15,7 @@
   },
   "dependencies": {
     "jquery": "latest",
-    "hammerjs": "hammer.js#^2.0.8",
-    "jquery-hammerjs": "hammerjs/jquery.hammer.js#^2.0.0"
+    "hammerjs": "hammer.js#^2.0.8"
   },
   "devDependencies": {
     "bourbon": "latest",

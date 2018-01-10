@@ -28,6 +28,3 @@ Copyright (c) 2017 [FCOO](https://github.com/FCOO)
 ## Contact information
 
 NielsHolt nho@fcoo.dk
-
-
-## Credits and acknowledgements

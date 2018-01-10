@@ -1,5 +1,5 @@
 /****************************************************************************
-	jquery-hammer.js.js, 
+	jquery-hammer.js.js,
 
 	(c) 2017, FCOO
 
@@ -7,18 +7,46 @@
 	https://github.com/FCOO
 
 ****************************************************************************/
-
 (function ($, Hammer) {
 	"use strict";
+
+    /****************************************************************
+    Copied from https://github.com/hammerjs/jquery.hammer.js
+    *****************************************************************/
+    function hammerify(el, options) {
+        var $el = $(el);
+        if(!$el.data("hammer")) {
+            $el.data("hammer", new Hammer($el[0], options));
+        }
+    }
+
+    $.fn.hammer = function(options) {
+        return this.each(function() {
+            hammerify(this, options);
+        });
+    };
+
+    // extend the emit method to also trigger jQuery events
+    Hammer.Manager.prototype.emit = (function(originalEmit) {
+        return function(type, data) {
+            originalEmit.call(this, type, data);
+            $(this.element).trigger({
+                type: type,
+                gesture: data
+            });
+        };
+    })(Hammer.Manager.prototype.emit);
+    //****************************************************************
+
     var hammerEvents = [
         {
             events: 'pan panstart panmove panend pancancel panleft panright panup pandown',
-            recognizer: 'pan', 
+            recognizer: 'pan',
             options: { direction: Hammer.DIRECTION_ALL }
         },
         {
             events: 'pinch pinchstart pinchmove pinchend pinchcancel pinchin pinchout',
-            recognizer: 'pinch', 
+            recognizer: 'pinch',
             options: { enable: true }
         },
         {
@@ -26,12 +54,12 @@
         },
         {
             events: 'rotate rotatestart rotatemove rotateend rotatecancel',
-            recognizer: 'rotate', 
+            recognizer: 'rotate',
             options: { enable: true }
         },
         {
             events: 'swipe swipeleft swiperight swipeup swipedown',
-            recognizer: 'swipe', 
+            recognizer: 'swipe',
             options: { direction: Hammer.DIRECTION_ALL }
         },
         {
@@ -42,7 +70,7 @@
 
     $.each( hammerEvents, function( index, hammerEvent ){
         var events = hammerEvent.events.split(' ');
-        $.each( events, function( index, event ){ 
+        $.each( events, function( index, event ){
             $.event.special[event] = {
                 setup:  function( /*data, namespaces, eventHandle*/ ){
                             $(this).hammer();
